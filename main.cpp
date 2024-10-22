@@ -2,6 +2,8 @@
 #include <cstdlib> // Para usar rand()
 #include <ctime>   // Para usar time()
 #include <string>
+#include <chrono>  // Para medir o tempo de execução
+#include <algorithm> // Para copy
 
 using namespace std;
 
@@ -19,11 +21,10 @@ void gerarRegistros(RegistroVenda registros[], int tamanho) {
         registros[i].quantidadeVendida = rand() % 100 + 1;
         registros[i].precoUnitario = (rand() % 10000) / 100.0;
         registros[i].dataVenda = "15/10/2024";
-        cout << i << endl;
     }
 }
 
-
+// Bubble Sort
 void bubbleSort(RegistroVenda arr[], int n) {
     for (int i = 0; i < n - 1; ++i) {
         for (int j = 0; j < n - i - 1; ++j) {
@@ -34,7 +35,7 @@ void bubbleSort(RegistroVenda arr[], int n) {
     }
 }
 
-
+// Insertion Sort
 void insertionSort(RegistroVenda arr[], int n) {
     for (int i = 1; i < n; ++i) {
         RegistroVenda key = arr[i];
@@ -47,7 +48,7 @@ void insertionSort(RegistroVenda arr[], int n) {
     }
 }
 
-
+// Selection Sort
 void selectionSort(RegistroVenda arr[], int n) {
     for (int i = 0; i < n - 1; ++i) {
         int max_idx = i;
@@ -60,7 +61,7 @@ void selectionSort(RegistroVenda arr[], int n) {
     }
 }
 
-
+// Counting Sort
 void countingSort(RegistroVenda arr[], int n, int range) {
     int* count = new int[range + 1]();
     RegistroVenda* output = new RegistroVenda[n];
@@ -88,7 +89,7 @@ void countingSort(RegistroVenda arr[], int n, int range) {
     delete[] output;
 }
 
-
+// Shell Sort
 void shellSort(RegistroVenda arr[], int n) {
     for (int gap = n / 2; gap > 0; gap /= 2) {
         for (int i = gap; i < n; ++i) {
@@ -102,7 +103,7 @@ void shellSort(RegistroVenda arr[], int n) {
     }
 }
 
-
+// QuickSort
 int partition(RegistroVenda arr[], int low, int high) {
     double pivot = arr[high].precoUnitario;
     int i = (low - 1);
@@ -124,38 +125,58 @@ void quickSort(RegistroVenda arr[], int low, int high) {
     }
 }
 
-
-#include <chrono>
-
+// Função para medir o tempo de execução
 template <typename Func>
 void medirTempoExecucao(Func func, RegistroVenda arr[], int n, const string &algoritmo) {
-    auto inicio = chrono::high_resolution_clock::now();
+    double totalDuracao = 0;
 
-    func(arr, n);
+    // ALTERAR REPETICOES PARA QUE VOCE POSSA TESTAR COM MAIORES REPETICOES PARA OBTER MEDIA
+    int repeticoes = 1;
 
-    auto fim = chrono::high_resolution_clock::now();
-    chrono::duration<double> duracao = fim - inicio;
-    cout << "Tempo de execucao para " << algoritmo << ": " << duracao.count() << " segundos\n";
+    for (int i = 0; i < repeticoes; ++i) {
+        auto inicio = chrono::high_resolution_clock::now();
+
+        func(arr, n);
+
+        auto fim = chrono::high_resolution_clock::now();
+        chrono::duration<double> duracao = fim - inicio;
+        totalDuracao += duracao.count();
+    }
+    cout << "Tempo medio de execucao para " << algoritmo << ": " << (totalDuracao / repeticoes) << " segundos\n";
 }
 
-
 int main() {
+    // ALTERAR TAMANHO PARA QUE VOCE POSSA TESTAR COM n NUMEROS DE PRODUTOS
     int tamanho = 100000;
 
     RegistroVenda* registros = new RegistroVenda[tamanho];
 
+    // Bolha
     gerarRegistros(registros, tamanho);
-
     medirTempoExecucao(bubbleSort, registros, tamanho, "Bolha");
-    //medirTempoExecucao(insertionSort, registros, tamanho, "InserÃ§Ã£o");
-    //medirTempoExecucao(selectionSort, registros, tamanho, "SeleÃ§Ã£o");
-    //medirTempoExecucao(shellSort, registros, tamanho, "Shell");
 
-    //medirTempoExecucao([&](RegistroVenda arr[], int n) { countingSort(arr, n, 10000); }, registros, tamanho, "Contagem");
-    //medirTempoExecucao([&](RegistroVenda arr[], int n) { quickSort(arr, 0, n - 1); }, registros, tamanho, "QuickSort");
+    // Inserção
+    gerarRegistros(registros, tamanho);
+    medirTempoExecucao(insertionSort, registros, tamanho, "Insercao");
 
+    // Seleção
+    gerarRegistros(registros, tamanho);
+    medirTempoExecucao(selectionSort, registros, tamanho, "Selecao");
+
+    // Shell
+    gerarRegistros(registros, tamanho);
+    medirTempoExecucao(shellSort, registros, tamanho, "Shell");
+
+    // Contagem
+    gerarRegistros(registros, tamanho);
+    medirTempoExecucao([&](RegistroVenda arr[], int n) { countingSort(arr, n, 10000); }, registros, tamanho, "Contagem");
+
+    // QuickSort
+    gerarRegistros(registros, tamanho);
+    medirTempoExecucao([&](RegistroVenda arr[], int n) { quickSort(arr, 0, n - 1); }, registros, tamanho, "QuickSort");
 
     delete[] registros;
 
     return 0;
 }
+
