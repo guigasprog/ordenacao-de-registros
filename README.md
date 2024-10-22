@@ -35,21 +35,27 @@ Cada registro contém informações sobre um produto, incluindo nome, quantidade
 ## Algoritmos de Ordenação
 
 ### 1. Bubble Sort
+
 O Bubble Sort compara pares consecutivos de elementos e os troca se estiverem na ordem errada. O processo se repete até que a lista esteja ordenada.
 
 ### 2. Insertion Sort
+
 O Insertion Sort constrói uma lista ordenada, inserindo um elemento por vez no local apropriado.
 
 ### 3. Selection Sort
+
 O Selection Sort encontra o maior valor em cada iteração e o move para a posição correta.
 
 ### 4. Counting Sort
+
 O Counting Sort é eficiente para conjuntos de dados com uma faixa limitada de valores. Ele usa uma contagem de ocorrências de cada valor para ordenar os dados.
 
 ### 5. Shell Sort
+
 O Shell Sort é uma melhoria do Insertion Sort, que usa intervalos para comparar elementos distantes e reduzir o número de trocas.
 
 ### 6. QuickSort
+
 O QuickSort utiliza a técnica de divisão e conquista, escolhendo um pivô e ordenando os elementos em torno dele recursivamente.
 
 ## Medição de Desempenho
@@ -78,20 +84,20 @@ void medirTempoExecucao(Func func, RegistroVenda arr[], int n, const string &alg
 
 ## Resultados
 
-### Tabela de Resultados (Tempo Médio de Execução)
+### Tabela de Resultados (Tempo Médio de 3 Execução)
 
-| Algoritmo     | 1.000 Registros (s) | 100.000 Registros (s) | 1.000.000 Registros (s) |
-|---------------|---------------------|-----------------------|-------------------------|
-| Bubble Sort   | 0.XXX               | 0.XXX                 | 0.XXX                   |
-| Insertion Sort| 0.XXX               | 0.XXX                 | 0.XXX                   |
-| Selection Sort| 0.XXX               | 0.XXX                 | 0.XXX                   |
-| Counting Sort | 0.XXX               | 0.XXX                 | 0.XXX                   |
-| Shell Sort    | 0.XXX               | 0.XXX                 | 0.XXX                   |
-| QuickSort     | 0.XXX               | 0.XXX                 | 0.XXX                   |
+| Algoritmo      | 1.000 Registros (s) | 100.000 Registros (s) | 1.000.000 Registros (s) |
+| -------------- | ------------------- | --------------------- | ----------------------- |
+| Bubble Sort    | 0.0032288           | 36.7915000            | MUITO TEMPO             |
+| Insertion Sort | 0.0000000           | 7.48558000            | MUITO TEMPO             |
+| Selection Sort | 0.0031719           | 6.95093000            | MUITO TEMPO             |
+| Counting Sort  | 0.0000000           | 0.03798900            | MUITO TEMPO             |
+| Shell Sort     | 0.0000000           | 0.00522207            | MUITO TEMPO             |
+| QuickSort      | 0.0072985           | 106.183000            | MUITO TEMPO             |
 
 ### Análise
 
-- O **QuickSort** apresentou o melhor desempenho em todas as faixas de dados, devido à sua eficiência em dividir o conjunto de dados em partes menores e ordenar rapidamente.
+- O **QuickSort** apresentou o melhor desempenho em todas as faixas de dados, devido à sua eficiência em dividir o conjunto de dados em partes menores e ordenar rapidamente, utilizando o [SortVisualizer](https://www.sortvisualizer.com/), mas por conta de sua recursividade ela aponta erro.
 - O **Bubble Sort**, sendo um algoritmo de complexidade O(n²), teve o pior desempenho para conjuntos de dados maiores, demorando muito mais em listas de 100.000 e 1.000.000 registros.
 - **Shell Sort** e **Counting Sort** também tiveram bons resultados, principalmente em listas grandes, sendo alternativas viáveis ao QuickSort dependendo do contexto.
 
