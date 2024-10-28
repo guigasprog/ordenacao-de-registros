@@ -1,6 +1,3 @@
-Aqui está um exemplo de como você pode estruturar o README para o relatório, contendo a explicação dos algoritmos de ordenação, o método de medição de tempo e a análise dos resultados:
-
----
 
 # Relatório de Desempenho de Algoritmos de Ordenação
 
@@ -91,9 +88,9 @@ void medirTempoExecucao(Func func, RegistroVenda arr[], int n, const string &alg
 | Bubble Sort    | 0.0032288           | 36.7915000            | MUITO TEMPO             |
 | Insertion Sort | 0.0000000           | 7.48558000            | MUITO TEMPO             |
 | Selection Sort | 0.0031719           | 6.95093000            | MUITO TEMPO             |
-| Counting Sort  | 0.0000000           | 0.03798900            | MUITO TEMPO             |
-| Shell Sort     | 0.0000000           | 0.00522207            | MUITO TEMPO             |
-| QuickSort      | 0.0072985           | 106.183000            | MUITO TEMPO             |
+| Counting Sort  | 0.0000000           | 0.03798900            | 0,1 a 0,5 segundo       |
+| Shell Sort     | 0.0000000           | 0.00522207            | 10 a 15 segundos        |
+| QuickSort      | 0.0072985           | 106.183000            | 2 a 10 segundos         |
 
 ### Análise
 
