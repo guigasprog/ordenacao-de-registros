@@ -88,9 +88,9 @@ void medirTempoExecucao(Func func, RegistroVenda arr[], int n, const string &alg
 | Bubble Sort    | 0.0032288           | 36.7915000            | MUITO TEMPO             |
 | Insertion Sort | 0.0000000           | 7.48558000            | MUITO TEMPO             |
 | Selection Sort | 0.0031719           | 6.95093000            | MUITO TEMPO             |
-| Counting Sort  | 0.0000000           | 0.03798900            | 0,1 a 0,5 segundo       |
+| Counting Sort  | 0.0000000           | 0.03798900            | 0.1 a 0.5 segundo       |
 | Shell Sort     | 0.0000000           | 0.00522207            | 10 a 15 segundos        |
-| QuickSort      | 0.0072985           | 106.183000            | 2 a 10 segundos         |
+| QuickSort      | 0.0072985           | 0.5 a 1 segundos      | 2 a 10 segundos         |
 
 ### Análise
 
