@@ -94,14 +94,14 @@ void medirTempoExecucao(Func func, RegistroVenda arr[], int n, const string &alg
 
 ### Análise
 
-- O **QuickSort** apresentou o melhor desempenho em todas as faixas de dados, devido à sua eficiência em dividir o conjunto de dados em partes menores e ordenar rapidamente, utilizando o [SortVisualizer](https://www.sortvisualizer.com/), mas por conta de sua recursividade ela aponta erro.
+- O **QuickSort** apresentou o melhor desempenho em todas as faixas de dados, devido à sua eficiência em dividir o conjunto de dados em partes menores e ordenar rapidamente, utilizando o [SortVisualizer](https://www.sortvisualizer.com/), mas por conta de sua recursividade ela aponta erro, uma forma de solucionar o erro seria utilizando a lib de Stack, para fazer uma lista em pilha.
 - O **Bubble Sort**, sendo um algoritmo de complexidade O(n²), teve o pior desempenho para conjuntos de dados maiores, demorando muito mais em listas de 100.000 e 1.000.000 registros.
-- **Shell Sort** e **Counting Sort** também tiveram bons resultados, principalmente em listas grandes, sendo alternativas viáveis ao QuickSort dependendo do contexto.
+- **QuickSort**, **Shell Sort** e **Counting Sort** também tiveram bons resultados, principalmente em listas grandes, sendo alternativas viáveis dependendo do contexto.
 
 ## Considerações Finais
 
-Este relatório mostrou que o QuickSort é a melhor escolha para listas grandes, enquanto para listas pequenas, algoritmos simples como o Insertion Sort podem ser utilizados sem perda significativa de desempenho. O Counting Sort foi eficiente para listas com valores limitados, mas requer adaptação para garantir ordenação decrescente.
+Este relatório mostrou que o QuickSort é a melhor escolha para listas grandes, enquanto para listas pequenas, algoritmos simples como o Insertion Sort podem ser utilizados sem perda significativa de desempenho. O Counting Sort foi eficiente para listas com valores limitados, por isso que ele não foi a melhor escolha, mas requer adaptação para garantir ordenação decrescente.
 
 ---
 
-Esse README inclui uma visão geral do projeto, explicações sobre os algoritmos, a metodologia de medição e os resultados obtidos, facilitando a compreensão de quem for ler o relatório.
+Esse README inclui uma visão geral do projeto, explicações sobre os algoritmos, a metodologia de medição e os resultados obtidos, facilitando a compreensão de quem for ler o relatório. E para fácil apresentação ao o Professor Begosso.
