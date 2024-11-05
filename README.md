@@ -85,12 +85,12 @@ void medirTempoExecucao(Func func, RegistroVenda arr[], int n, const string &alg
 
 | Algoritmo      | 1.000 Registros (s) | 100.000 Registros (s) | 1.000.000 Registros (s) |
 | -------------- | ------------------- | --------------------- | ----------------------- |
-| Bubble Sort    | 0.0032288           | 36.7915000            | MUITO TEMPO             |
-| Insertion Sort | 0.0000000           | 7.48558000            | MUITO TEMPO             |
-| Selection Sort | 0.0031719           | 6.95093000            | MUITO TEMPO             |
-| Counting Sort  | 0.0000000           | 0.03798900            | 0.1 a 0.5 segundo       |
-| Shell Sort     | 0.0000000           | 0.00522207            | 10 a 15 segundos        |
-| QuickSort      | 0.0072985           | 0.5 a 1 segundos      | 2 a 10 segundos         |
+| Bubble Sort    | 0.0032288           | 36.7915000            | 1000 a 10000 segundos   |
+| Insertion Sort | 0.0000000           | 7.48558000            | 100 a 1000 segundos     |
+| Selection Sort | 0.0031719           | 6.95093000            | 100 a 1000 segundos     |
+| Counting Sort  | 0.0000000           | 0.03798900            | 0.1 a 1 segundos        |
+| Shell Sort     | 0.0000000           | 0.00522207            | 1 a 10 segundos         |
+| QuickSort      | 0.0072985           | 0.01 a 0.1 segundos   | 0.1 a 1 segundos        |
 
 ### Análise
 
@@ -98,9 +98,27 @@ void medirTempoExecucao(Func func, RegistroVenda arr[], int n, const string &alg
 - O **Bubble Sort**, sendo um algoritmo de complexidade O(n²), teve o pior desempenho para conjuntos de dados maiores, demorando muito mais em listas de 100.000 e 1.000.000 registros.
 - **QuickSort**, **Shell Sort** e **Counting Sort** também tiveram bons resultados, principalmente em listas grandes, sendo alternativas viáveis dependendo do contexto.
 
+### Gráficos
+
+##
+<div align="center">
+    <img src="https://github.com/user-attachments/assets/3c062cb1-c67b-4d4a-a70c-f79303314484" alt="1.000 Registros" width="400">
+</div>
+
+##
+<div align="center">
+    <img src="https://github.com/user-attachments/assets/de5e3093-cfee-4041-bf35-66733af8bca5" alt="100.000 Registros" width="400">
+</div>
+
+##
+<div align="center">
+    <img src="https://github.com/user-attachments/assets/91f1fb50-1991-4eb5-83ff-5fc7d5b7a4bf" alt="1.000.000 Registros" width="400">
+</div>
+
+
 ## Considerações Finais
 
-Este relatório mostrou que o QuickSort é a melhor escolha para listas grandes, enquanto para listas pequenas, algoritmos simples como o Insertion Sort podem ser utilizados sem perda significativa de desempenho. O Counting Sort foi eficiente para listas com valores limitados, por isso que ele não foi a melhor escolha, mas requer adaptação para garantir ordenação decrescente.
+Este relatório mostrou que o QuickSort é a melhor escolha para listas grandes, enquanto para listas pequenas, algoritmos simples como o Insertion Sort podem ser utilizados sem perda significativa de desempenho. O Counting Sort foi eficiente para listas com valores limitados, por isso que ele não foi a melhor escolha.
 
 ---
 
